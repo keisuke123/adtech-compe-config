@@ -17,36 +17,36 @@ app-log: ## Show Log App Service
 app-rebuild: ## Rebuild and Restart App
 	@echo -n "Rebuilding ${APP_SERVICE_NAME}... "
 	@(cd ${APP_SOURCE_DIR}; make) \
-        	&& echo 'done!'
+		&& echo 'done!'
 	@make -s app-restart
 
 app-restart: ## Restart App Service
 	@echo -n "Restarting ${APP_SERVICE_NAME}... "
 	@(sudo systemctl daemon-reload \
-	       && sudo systemctl restart ${APP_SERVICE_NAME}) \
-	   && echo 'done!'
+		&& sudo systemctl restart ${APP_SERVICE_NAME}) \
+		&& echo 'done!'
 
 sync: ## Sync Application
 	@echo -n "Sync ${APP_SERVICE_NAME}... "
 	@cd ${APP_SOURCE_DIR} \
 	@git pull \
-	    && git checkout feature/server \
-	    && echo 'done!' \
-	    && cd /home/ozilikepop/config/ \
-	    && make -s app-rebuild nginx-reload
+		&& git checkout feature/server \
+		&& echo 'done!' \
+		&& cd /home/ozilikepop/config/ \
+		&& make -s app-rebuild nginx-reload
 
 nginx-reload: ## Reload Nginx
 	@echo -n 'Checking Nginx conf... '
 	@sudo nginx -t \
-	    && echo 'done!' \
-	    && echo -n 'Reload Nginx conf... ' \
-	    && sudo nginx -s reload \
-	    && echo 'done!'
+		&& echo 'done!' \
+		&& echo -n 'Reload Nginx conf... ' \
+		&& sudo nginx -s reload \
+		&& echo 'done!'
 
 nginx-restart: ## Restart Nginx
 	@echo -n 'Restarting Nginx... '
 	@sudo systemctl restart nginx \
-	    && echo 'done!'
+		&& echo 'done!'
 
 nginx-log: ## tail Nginx access.log [arg=<tail option>]
 	@sudo tail ${arg} ${NGINX_ACCESS_LOG}
@@ -57,7 +57,7 @@ nginx-error-log: ## tail Nginx error.log [arg=<tail option>]
 nginx-backup: ## Make nginx.conf Backup to ~/backup/
 	@echo -n "Saving nginx.conf to ${BACKUP_DIR}/nginx_`date "+%Y%m%d_%H%M%S".conf` ... "
 	@cp /etc/nginx/nginx.conf ${BACKUP_DIR}/nginx_`date "+%Y%m%d_%H%M%S".conf` \
-	    && echo 'done!'
+		&& echo 'done!'
 
 service-status: ## Show Status of Service
 	@sudo systemctl list-unit-files -t service
