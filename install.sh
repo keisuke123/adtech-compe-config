@@ -1,5 +1,5 @@
 # copy .bash_profile
-cp ~/config
+cd ~/config
 cp .bash_profile ~/.bash_profile
 
 # copy dsp.service
