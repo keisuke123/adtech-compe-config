@@ -29,8 +29,8 @@ app-restart: ## Restart App Service
 sync: ## Sync Application
 	@echo -n "Sync ${APP_SERVICE_NAME}... "
 	@cd ${APP_SOURCE_DIR} \
-	@git pull \
-		&& git checkout feature/server \
+	@git checkout feature/server \
+		&& git pull\
 		&& echo 'done!' \
 		&& cd /home/ozilikepop/config/ \
 		&& make -s app-rebuild nginx-reload
