@@ -4,6 +4,8 @@ cp .bash_profile ~/.bash_profile
 
 # copy dsp.service
 sudo cp dsp.service /etc/systemd/system/
+sudo systemctl enable dsp
+sudo systemctl start dsp
 
 # copy Makefile-go
 cd ~/adtech-compe-2018-e/
