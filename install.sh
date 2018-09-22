@@ -6,6 +6,6 @@ cp .bash_profile ~/.bash_profile
 sudo cp dsp.service /etc/systemd/system/
 
 # copy Makefile-go
-cp Makefile-golang .adtech-compe-2018-e/server/Makefile
-
-
+cd ~/adtech-compe-2018-e/
+git checkout feature/server
+cp Makefile-golang ~/adtech-compe-2018-e/server/Makefile
