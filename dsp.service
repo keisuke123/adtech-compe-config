@@ -3,6 +3,7 @@ Description = DSP server made by golang
 
 [Service]
 ExecStart = /home/ozilikepop/adtech-compe-2018-e/server/main
+EnvironmentFile = /home/ozilikepop/.env
 Restart = always
 Type = simple
 
