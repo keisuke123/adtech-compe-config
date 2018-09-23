@@ -29,7 +29,7 @@ app-restart: ## Restart App Service
 sync: ## Sync Application
 	@echo -n "Sync ${APP_SERVICE_NAME}... "
 	@cd ${APP_SOURCE_DIR} \
-	@git checkout feature/server \
+	@git checkout develop \
 		&& git pull\
 		&& echo 'done!' \
 		&& cd /home/ozilikepop/config/ \

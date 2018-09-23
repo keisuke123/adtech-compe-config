@@ -9,7 +9,7 @@ sudo systemctl start dsp
 
 # copy Makefile-go
 cd ~/adtech-compe-2018-e/
-git checkout feature/server
+git checkout develop 
 cp ~/config/Makefile-golang ~/adtech-compe-2018-e/server/Makefile
 
 # copy .env
